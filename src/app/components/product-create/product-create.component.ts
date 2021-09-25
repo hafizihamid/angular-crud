@@ -14,10 +14,9 @@ export class ProductCreateComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createProduct(): void {
     const data = {
@@ -25,15 +24,15 @@ export class ProductCreateComponent implements OnInit {
       description: this.product.description
     };
 
-    this.productService.create(data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-        },
-        error => {
-          console.log(error);
-        });
+    this.productService.create(data).subscribe(
+      response => {
+        console.log(response);
+        this.submitted = true;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   newProduct(): void {
@@ -44,5 +43,4 @@ export class ProductCreateComponent implements OnInit {
       available: false
     };
   }
-
 }
