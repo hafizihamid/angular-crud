@@ -1,8 +1,8 @@
 <div style="width: 500px; margin: auto">
   <div class="submit-form">
     <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="name">Name</label>
+      <div class="form-group pt-2">
+        <label for="name">Product name</label>
         <input
           type="text"
           class="form-control"
@@ -13,8 +13,8 @@
         />
       </div>
 
-      <div class="form-group">
-        <label for="description">Description</label>
+      <div class="form-group pt-2">
+        <label for="description">Product description</label>
         <input
           class="form-control"
           id="description"
@@ -24,12 +24,25 @@
         />
       </div>
 
-      <button (click)="createProduct()" class="btn btn-success">Create</button>
+      <div class="form-group pt-2">
+        <label for="description">Product price</label>
+        <input
+          class="form-control"
+          id="price"
+          required
+          [(ngModel)]="product.price"
+          name="price"
+        />
+      </div>
+
+      <button (click)="createProduct()" class="mt-2 btn btn-success">
+        Create
+      </button>
     </div>
 
-    <div *ngIf="submitted">
+    <div class="pt-2" *ngIf="submitted">
       <h3>You successfully created a product!</h3>
-      <button class="btn btn-success" (click)="newProduct()">New..</button>
+      <button class="btn btn-success pt-2" (click)="newProduct()">New..</button>
     </div>
   </div>
 </div>

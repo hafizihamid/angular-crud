@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -7,21 +8,20 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-create.component.scss']
 })
 export class ProductCreateComponent implements OnInit {
-  product = {
-    name: '',
-    description: '',
-    available: false
-  };
   submitted = false;
+  product: Product = {} as Product;
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.product);
+  }
 
   createProduct(): void {
     const data = {
       name: this.product.name,
-      description: this.product.description
+      description: this.product.description,
+      price: this.product.price
     };
 
     this.productService.create(data).subscribe(
@@ -37,10 +37,6 @@ export class ProductCreateComponent implements OnInit {
 
   newProduct(): void {
     this.submitted = false;
-    this.product = {
-      name: '',
-      description: '',
-      available: false
-    };
+    this.product;
   }
 }
