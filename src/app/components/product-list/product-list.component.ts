@@ -40,12 +40,14 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteAllProducts(): void {
-    this.productService.deleteAll().subscribe(
-      response => {
-        this.readProducts();
-      },
-      error => {}
-    );
+    // temp fix
+    this.products.length = 0;
+    // this.productService.deleteAll().subscribe(
+    //   response => {
+    //     this.readProducts();
+    //   },
+    //   error => {}
+    // );
   }
 
   searchByName(): void {
